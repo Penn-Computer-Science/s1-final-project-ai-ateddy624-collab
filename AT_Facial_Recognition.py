@@ -114,7 +114,7 @@ y_train = to_categorical(y_int, num_categories)
 
 batch_size = 64
 num_classes = num_categories
-epochs = 3
+epochs = 5     #maybe switch to 2 epochs
 
 #Build time
 model = tf.keras.models.Sequential(
@@ -138,10 +138,10 @@ model = tf.keras.models.Sequential(
         tf.keras.layers.MaxPool2D(),
         tf.keras.layers.Dropout(0.45),
         
-        tf.keras.layers.Conv2D(256, (5, 5), padding='same', activation='relu', input_shape=input_shape),
-        tf.keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu', input_shape=input_shape),
-        tf.keras.layers.MaxPool2D(),
-        tf.keras.layers.Dropout(.55),
+        #tf.keras.layers.Conv2D(256, (5, 5), padding='same', activation='relu', input_shape=input_shape),
+        #tf.keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu', input_shape=input_shape),
+        #tf.keras.layers.MaxPool2D(),
+        #tf.keras.layers.Dropout(.55),
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(num_classes, activation='softmax'),
     ]
@@ -172,3 +172,9 @@ ax[1].set_ylabel("Accuracy")
 
 plt.tight_layout()
 plt.show()
+
+
+
+
+model.save("name.keras")
+# Switch to model.save("Facial_Recognition.keras")
