@@ -1,8 +1,8 @@
 #imports
 import seaborn as sns
-import tensorflow as tf
 import numpy as np
 import pandas as pd
+from collections import Counter
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from tensorflow.keras.utils import to_categorical
@@ -10,10 +10,13 @@ from tensorflow.keras.utils import to_categorical
 
 #Assistance from Copilot (lines 12-67)
 from pathlib import Path
-from collections import Counter
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 data_path = Path("AT_project_root\data")
+from pathlib import Path
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+data_path = Path(__file__).resolve().parents[1] / "data"
 
 # sanity checks
 if not data_path.exists():
